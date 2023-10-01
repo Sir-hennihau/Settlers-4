@@ -16,3 +16,21 @@ Hotkey script for the game Settlers 4. These add additional hotkeys to your game
 - Special thanks to zl_bobissime and phottor for providing great parts of this script setup
 - There is a german video guide on how to setup the script [here](https://www.youtube.com/watch?v=5q1aneWgogY)
 - There is additional info in `Settlers_IV_Advanced_Hotkeys_by_Vincent.pdf`
+- Pull requests are welcomed
+
+## Todo
+
+These features are candidates to be added to the hotkey script
+
+- Select 1 thieve
+- Select all thieves
+- Select 1 swords
+- Create 5 thieves
+- Select all pioneers
+- Select all geologists
+- Statistics for sword/bow/special weapon
+- Use mouse wheel to change menus
+- Custom hotkeys for each beautification object
+- Use mouse wheel to cycle through beautification objects
+- Sleep on removing prio for more consistent behaviour
+- Toggle statistics between 15 and 60 minutes

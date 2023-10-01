@@ -84,6 +84,10 @@ StatisticsGoldBars := "Numpad9"
 		x_wheel := 29					
 		y_wheel := 349
 		color_wheel := 0x354D67
+	; Building Bar red
+		x_bar_red := 134
+		y_bar_red := 262
+		color_bar_red := 0xFD0000
 	;Prio exclamation mark (!)
 	;location and colour of (exclmation mark / prio on) symbol 
 		x_prio := 23					
@@ -326,6 +330,92 @@ StatisticsLogV:
 
 	MouseMove, xpos, ypos, 0
 return
+
+StatisticsStoneV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_stone, y_statistic_stone, 0
+	Send ^{Click x_statistic_stone y_statistic_stone Left}
+
+	MouseMove, xpos, ypos, 0
+return
+	
+StatisticsGrainV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_grain, y_statistic_grain, 0
+	Send ^{Click x_statistic_grain y_statistic_grain Left}
+
+	MouseMove, xpos, ypos, 0
+return
+	
+StatisticsCoalV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_coal, y_statistic_coal, 0
+	Send ^{Click x_statistic_coal y_statistic_coal Left}
+
+	MouseMove, xpos, ypos, 0
+return
+	
+StatisticsIronOreV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_iron_ore, y_statistic_iron_ore, 0
+	Send ^{Click x_statistic_iron_ore y_statistic_iron_ore Left}
+
+	MouseMove, xpos, ypos, 0
+return
+	
+StatisticsGoldOreV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_gold_ore, y_statistic_gold_ore, 0
+	Send ^{Click x_statistic_gold_ore y_statistic_gold_ore Left}
+
+	MouseMove, xpos, ypos, 0
+return
+	
+StatisticsGoldBarsV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_gold_bar, y_statistic_gold_bar, 0
+	Send ^{Click x_statistic_gold_bar y_statistic_gold_bar Left}
+
+	MouseMove, xpos, ypos, 0
+return
+	
+
 	
 ;Open Toolsmith's menu 
 
