@@ -36,7 +36,16 @@ Workingarea := "CapsLock"	; set working area
 Nextbuilding:= "+h"			; switch to next building							
 OnAndOff := "F5"			; Toggle skript on and off until pressed again
 StatisticsTab := "Numpad0"	;Open first statistics tab
-StatisticsSettlers := "Numpad1"	;Open first statistics tab
+StatisticsSettlers := "Numpad1"
+StatisticsBuiltRessources := "Numpad2"
+StatisticsLog := "Numpad3"
+StatisticsStone := "Numpad4"
+StatisticsGrain := "Numpad5"
+StatisticsCoal := "Numpad6"
+StatisticsIronOre := "Numpad7"
+StatisticsGoldOre := "Numpad8"
+StatisticsGoldBars := "Numpad9"
+
 
 ; --- LANGUAGE SETTINGS ---
 
@@ -102,12 +111,39 @@ StatisticsSettlers := "Numpad1"	;Open first statistics tab
 	;location statistics tab	
 		x_statistic_tab := 168					
 		y_statistic_tab := 186
-	;location statistics tab	
-		x_statistic_land := 100					
-		y_statistic_land := 230
-	;location statistics tab	
+	;location land statistics subtab	
+		x_statistic_land_subtab := 100					
+		y_statistic_land_subtab := 230
+	;location goods statistics subtab	
+		x_statistic_goods_subtab := 180					
+		y_statistic_goods_subtab := 230
+	;location settlers statistics 	
 		x_statistic_settlers := 200				
 		y_statistic_settlers := 480
+
+		x_statistic_built_ressources := 310				
+		y_statistic_built_ressources := 490
+
+		x_statistic_logs := 60				
+		y_statistic_logs := 490
+
+		x_statistic_stone := 90				
+		y_statistic_stone := 490
+
+		x_statistic_grain := 240				
+		y_statistic_grain := 530
+
+		x_statistic_coal := 80				
+		y_statistic_coal := 570
+
+		x_statistic_iron_ore := 30				
+		y_statistic_iron_ore := 530
+
+		x_statistic_gold_ore := 90				
+		y_statistic_gold_ore := 530
+
+		x_statistic_gold_bar := 40				
+		y_statistic_gold_bar := 570
 
 
 ; --- START OF SCRIPT--- !!!NO MORE CHANGES NEEDED!!!
@@ -137,6 +173,7 @@ StatisticsSettlers := "Numpad1"	;Open first statistics tab
 	Hotkey, %B10%, B10V 
 	Hotkey, %BP%, BPV 
 	Hotkey, %BM%, BMV
+
 	Hotkey, %Toolsmith%, ToolsmithV
 	Hotkey, %Weaponsmith%, WeaponsmithV
 	Hotkey, %Barrack%, BarrackV
@@ -148,8 +185,17 @@ StatisticsSettlers := "Numpad1"	;Open first statistics tab
 	Hotkey, %Workingarea%, WorkingareaV
 	Hotkey, %Nextbuilding%, NextbuildingV 
 	Hotkey, %OnAndOff%, OnAndOffV 
+
 	Hotkey, %StatisticsTab%, StatisticsTabV 
-	Hotkey, %StatisticsSettlers%, StatisticSettlersV 
+	Hotkey, %StatisticsSettlers%, StatisticSettlersV
+	Hotkey, %StatisticsBuiltRessources%, StatistiBuiltRessourcesV 
+	Hotkey, %StatisticsLog%, StatisticsLogV 
+	Hotkey, %StatisticsStone%, StatisticsStoneV 
+	Hotkey, %StatisticsGrain%, StatisticsGrainV 
+	Hotkey, %StatisticsCoal%, StatisticsCoalV 
+	Hotkey, %StatisticsIronOre%, StatisticsIronOreV
+	Hotkey, %StatisticsGoldOre%, StatisticsGoldOreV 
+	Hotkey, %StatisticsGoldBars%, StatisticsGoldBarsV 
 	return
 
 ;MenuHotkeys
@@ -239,19 +285,44 @@ StatisticsTabV:
 	MouseMove, xpos, ypos, 0
 return
 
-;Open Settlers statistic
-
 StatisticSettlersV:
 	MouseGetPos, xpos, ypos
-	;MouseMove, x_statistic_tab, y_statistic_tab, 0
 	MouseMove, x_statistic_tab, y_statistic_tab, 0
 	Send ^{Click x_statistic_tab y_statistic_tab Left}
 
-	MouseMove, x_statistic_land, y_statistic_land, 0
-	Send ^{Click x_statistic_land y_statistic_land Left}
+	MouseMove, x_statistic_land_subtab, y_statistic_land_subtab, 0
+	Send ^{Click x_statistic_land_subtab y_statistic_land_subtab Left}
 
 	MouseMove, x_statistic_settlers, y_statistic_settlers, 0
 	Send ^{Click x_statistic_settlers y_statistic_settlers Left}
+
+	MouseMove, xpos, ypos, 0
+return
+
+StatistiBuiltRessourcesV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_land_subtab, y_statistic_land_subtab, 0
+	Send ^{Click x_statistic_land_subtab y_statistic_land_subtab Left}
+
+	MouseMove, x_statistic_built_ressources, y_statistic_built_ressources, 0
+	Send ^{Click x_statistic_built_ressources y_statistic_built_ressources Left}
+
+	MouseMove, xpos, ypos, 0
+return
+
+StatisticsLogV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_logs, y_statistic_logs, 0
+	Send ^{Click x_statistic_logs y_statistic_logs Left}
 
 	MouseMove, xpos, ypos, 0
 return
