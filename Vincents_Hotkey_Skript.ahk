@@ -1,4 +1,4 @@
-;Settings for Hotkeys ;Hotkeys setzen
+; --- HOTKEY SETTINGS ---
 
 BM1	:= "q"					; Building Menu1 		
 BM2	:= "w"					; Building Menu2 		
@@ -24,65 +24,82 @@ B9	:= "+u"					; Building 9
 B10	:= "+j"					; Building 10			
 BP	:= "+i"					; Beutification + 		
 BM	:= "+k"					; Beutification - 		
-Toolsmith:= "Tab"			; Open Toolsmith's menu 								
-Deletbuilding:= "+l"	; Delete current building 							
-Prio := "+z"			; set current construction site prio on and off		 
-StoppPrio := "g"		; sets prio off and moves to next building 			
-StartPrio := "+w" ;
+Toolsmith:= "Tab"			; Open Toolsmith's menu 	
+Weaponsmith:= "+Tab"		; Open Toolsmith's menu
+Barrack:= "^Tab"		; Open Toolsmith's menu  	
+Deletbuilding:= "+l"		; Delete current building 							
+Prio := "+z"				; set current construction site prio on and off		 
+StoppPrio := "g"			; sets prio off and moves to next building 			
+StartPrio := "+w" 			; sets prio on and moves to next building 			
 Stop:= "`^"					; toggle constructiqon site pause		 			
 Workingarea := "CapsLock"	; set working area 								
-Nextbuilding:= "+h"	; switch to next building							
+Nextbuilding:= "+h"			; switch to next building							
 OnAndOff := "F5"			; Toggle skript on and off until pressed again 		
 
-;Setting language 
+; --- LANGUAGE SETTINGS ---
 
-	#IfWinActive The Settlers IV ;Remove first ; if u play in English 
+	#IfWinActive The Settlers IV  ; if u play in English, use this line 
 	
-	;IfWinActive Die Siedler IV ;Add a " ; " if you play in English
+	;IfWinActive Die Siedler IV ; if u play in German, use this line
 	
-;Settings for Pixels
+; --- PIXEL SETTINGS ---
+; Locations of things in the UI, you canuse getCoordsAndColorWithZ.exe to find those values if you have a different screen resolution than 1920x1080
 	;Toolsmith building menu coords 
 		x_toolsmith := 62		
 		y_toolsmith := 459
-		x_toolselection := 170			;location of tool selection Menu ;Ort des Werkzeugmenüs
+		x_toolselection := 170			
 		y_toolselection := 351
+	;Weaponsmith building menu coords 
+		x_weaponsmith := 138		
+		y_weaponsmith := 460
+	;Toolsmith building menu coords 
+		x_barrack := 70		
+		y_barrack := 285
 	;Crushing building coords
-		x_bomb := 182					;location and colour of Bomb symbol ; Ort des Bombensymbols
+		x_bomb := 182				
 		y_bomb := 267
 		color_bomb := 0x712143
 		x_white := 103					;location of a white pixel that shows up for last tower (only) 
 		y_white := 422
-		color_white := 0xFFFFFF 
-		x_thumbsup := 39				;location of thumbsup
+		color_white := 0xFFFFFF
+	;location of thumbsup
+		x_thumbsup := 39				
 		y_thumbsup := 487
-		x_thumbsdown := 161				;location of thumbsup
+	;location of thumbsdown
+		x_thumbsdown := 161				
 		y_thumbsdown := 483
 	;Prio coords
-		x_wheel := 29					;location and colour of (gear / prio) symbol 
+	;location and colour of (gear / prio) symbol 
+		x_wheel := 29					
 		y_wheel := 349
 		color_wheel := 0x354D67
-	;Prio exclamation mark (!) 
-		x_prio := 23					;location and colour of (exclmation mark / prio on) symbol 
+	;Prio exclamation mark (!)
+	;location and colour of (exclmation mark / prio on) symbol 
+		x_prio := 23					
 		y_prio := 351
 		color_prio := 0x55D0ED
 	;Pausing buildings
-		x_house := 178					;location and colour of (house / pause) symbol 
+	;location and colour of (house / pause) symbol 
+		x_house := 178				
 		y_house := 294
 		color_house := 0x1C5F98
 	;Set working area
-		x_green2 := 64					;location and colour of green dot of constrcted buildings (working area)
+	;location and colour of green dot of constrcted buildings (working area)
+		x_green2 := 64				
 		y_green2 := 350
 		color_green2 := 0x057B3B
-		x_green := 31					;location and colour of green dot of buildings that are not fully constructed yet (working area)
+	;location and colour of green dot of buildings that are not fully constructed yet (working area)
+		x_green := 31					
 		y_green := 351
 		color_green := 0x047A39
 	;Set next building coords
-		x_arrow := 181					;location and colour of the (arrow / next building) symbol	
+	;location and colour of the (arrow / next building) symbol	
+		x_arrow := 181					
 		y_arrow := 319
 		color_arrow := 0x7D667C
 
 
-;Start of Skript !!!NO MORE CHANGES NEEDED!!!
+; --- START OF SCRIPT--- !!!NO MORE CHANGES NEEDED!!!
 #UseHook
 	pausevariable := 0
 	Hotkey, %BM1%, BM1V
@@ -110,6 +127,8 @@ OnAndOff := "F5"			; Toggle skript on and off until pressed again
 	Hotkey, %BP%, BPV 
 	Hotkey, %BM%, BMV
 	Hotkey, %Toolsmith%, ToolsmithV
+	Hotkey, %Weaponsmith%, WeaponsmithV
+	Hotkey, %Barrack%, BarrackV
 	Hotkey, %Deletbuilding%, DeletbuildingV
 	Hotkey, %StoppPrio%, StoppPrioV
 	Hotkey, %StartPrio%, StartPrioV
@@ -204,6 +223,23 @@ OnAndOff := "F5"			; Toggle skript on and off until pressed again
 		Send, w
 		MouseMove, x_toolsmith, y_toolsmith, 0
 		Send ^{Click x_toolsmith y_toolsmith Right}
+		MouseMove	, x_toolselection, y_toolselection, 0
+	return
+
+	;Open Weaponsmith's menu 
+
+	WeaponsmithV:
+		Send, w
+		MouseMove, x_weaponsmith, y_weaponsmith, 0
+		Send ^{Click x_weaponsmith y_weaponsmith Right}
+		MouseMove	, x_toolselection, y_toolselection, 0
+	return
+
+	;Open Barrack's menu 
+	BarrackV:
+		Send, t
+		MouseMove, x_barrack, y_barrack, 0
+		Send ^{Click x_barrack y_barrack Right}
 		MouseMove	, x_toolselection, y_toolselection, 0
 	return
 	
