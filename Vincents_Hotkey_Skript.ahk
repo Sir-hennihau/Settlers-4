@@ -34,7 +34,9 @@ StartPrio := "+w" 			; sets prio on and moves to next building
 Stop:= "`^"					; toggle constructiqon site pause		 			
 Workingarea := "CapsLock"	; set working area 								
 Nextbuilding:= "+h"			; switch to next building							
-OnAndOff := "F5"			; Toggle skript on and off until pressed again 		
+OnAndOff := "F5"			; Toggle skript on and off until pressed again
+StatisticsTab := "Numpad0"	;Open first statistics tab
+StatisticsSettlers := "Numpad1"	;Open first statistics tab
 
 ; --- LANGUAGE SETTINGS ---
 
@@ -97,6 +99,15 @@ OnAndOff := "F5"			; Toggle skript on and off until pressed again
 		x_arrow := 181					
 		y_arrow := 319
 		color_arrow := 0x7D667C
+	;location statistics tab	
+		x_statistic_tab := 168					
+		y_statistic_tab := 186
+	;location statistics tab	
+		x_statistic_land := 100					
+		y_statistic_land := 230
+	;location statistics tab	
+		x_statistic_settlers := 200				
+		y_statistic_settlers := 480
 
 
 ; --- START OF SCRIPT--- !!!NO MORE CHANGES NEEDED!!!
@@ -137,6 +148,8 @@ OnAndOff := "F5"			; Toggle skript on and off until pressed again
 	Hotkey, %Workingarea%, WorkingareaV
 	Hotkey, %Nextbuilding%, NextbuildingV 
 	Hotkey, %OnAndOff%, OnAndOffV 
+	Hotkey, %StatisticsTab%, StatisticsTabV 
+	Hotkey, %StatisticsSettlers%, StatisticSettlersV 
 	return
 
 ;MenuHotkeys
@@ -216,6 +229,32 @@ OnAndOff := "F5"			; Toggle skript on and off until pressed again
 	BMV:
 		Send, {-}
 	return
+
+;Open statistics tab
+
+StatisticsTabV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+	MouseMove, xpos, ypos, 0
+return
+
+;Open Settlers statistic
+
+StatisticSettlersV:
+	MouseGetPos, xpos, ypos
+	;MouseMove, x_statistic_tab, y_statistic_tab, 0
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_land, y_statistic_land, 0
+	Send ^{Click x_statistic_land y_statistic_land Left}
+
+	MouseMove, x_statistic_settlers, y_statistic_settlers, 0
+	Send ^{Click x_statistic_settlers y_statistic_settlers Left}
+
+	MouseMove, xpos, ypos, 0
+return
 	
 ;Open Toolsmith's menu 
 
@@ -406,7 +445,7 @@ return
 		}
 	return
 
-;Script On/Off toggel		;Skript An/Aus schalten
+;Script On/Off toggel	
 	
 	OnAndOffV:
 		Suspend, Toggle
