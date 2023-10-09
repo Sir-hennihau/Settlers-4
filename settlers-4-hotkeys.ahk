@@ -35,7 +35,7 @@ Stop:= "`^"					; toggle constructiqon site pause
 Workingarea := "CapsLock"	; set working area 								
 Nextbuilding:= "+h"			; switch to next building							
 OnAndOff := "F5"			; Toggle skript on and off until pressed again
-StatisticsTab := "Numpad0"	;Open first statistics tab
+StatisticsTab := "Numpad0"	
 StatisticsSettlers := "Numpad1"
 StatisticsBuiltRessources := "Numpad2"
 StatisticsLog := "Numpad3"
@@ -148,6 +148,10 @@ StatisticsGoldBars := "Numpad9"
 
 		x_statistic_gold_bar := 40				
 		y_statistic_gold_bar := 570
+
+		x_statistics_60 := 29
+		y_statistics_60 := 350
+
 
 
 ; --- START OF SCRIPT--- !!!NO MORE CHANGES NEEDED!!!
@@ -286,6 +290,10 @@ StatisticsTabV:
 	MouseGetPos, xpos, ypos
 	MouseMove, x_statistic_tab, y_statistic_tab, 0
 	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
 	MouseMove, xpos, ypos, 0
 return
 
@@ -299,6 +307,9 @@ StatisticSettlersV:
 
 	MouseMove, x_statistic_settlers, y_statistic_settlers, 0
 	Send ^{Click x_statistic_settlers y_statistic_settlers Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
 
 	MouseMove, xpos, ypos, 0
 return
@@ -314,6 +325,9 @@ StatistiBuiltRessourcesV:
 	MouseMove, x_statistic_built_ressources, y_statistic_built_ressources, 0
 	Send ^{Click x_statistic_built_ressources y_statistic_built_ressources Left}
 
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
 	MouseMove, xpos, ypos, 0
 return
 
@@ -327,6 +341,9 @@ StatisticsLogV:
 
 	MouseMove, x_statistic_logs, y_statistic_logs, 0
 	Send ^{Click x_statistic_logs y_statistic_logs Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
 
 	MouseMove, xpos, ypos, 0
 return
@@ -342,6 +359,9 @@ StatisticsStoneV:
 	MouseMove, x_statistic_stone, y_statistic_stone, 0
 	Send ^{Click x_statistic_stone y_statistic_stone Left}
 
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
 	MouseMove, xpos, ypos, 0
 return
 	
@@ -355,6 +375,10 @@ StatisticsGrainV:
 
 	MouseMove, x_statistic_grain, y_statistic_grain, 0
 	Send ^{Click x_statistic_grain y_statistic_grain Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
 
 	MouseMove, xpos, ypos, 0
 return
@@ -370,6 +394,10 @@ StatisticsCoalV:
 	MouseMove, x_statistic_coal, y_statistic_coal, 0
 	Send ^{Click x_statistic_coal y_statistic_coal Left}
 
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+
 	MouseMove, xpos, ypos, 0
 return
 	
@@ -383,6 +411,9 @@ StatisticsIronOreV:
 
 	MouseMove, x_statistic_iron_ore, y_statistic_iron_ore, 0
 	Send ^{Click x_statistic_iron_ore y_statistic_iron_ore Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
 
 	MouseMove, xpos, ypos, 0
 return
@@ -398,6 +429,9 @@ StatisticsGoldOreV:
 	MouseMove, x_statistic_gold_ore, y_statistic_gold_ore, 0
 	Send ^{Click x_statistic_gold_ore y_statistic_gold_ore Left}
 
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
 	MouseMove, xpos, ypos, 0
 return
 	
@@ -411,6 +445,9 @@ StatisticsGoldBarsV:
 
 	MouseMove, x_statistic_gold_bar, y_statistic_gold_bar, 0
 	Send ^{Click x_statistic_gold_bar y_statistic_gold_bar Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
 
 	MouseMove, xpos, ypos, 0
 return
