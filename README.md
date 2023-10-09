@@ -32,5 +32,7 @@ Hotkey script for the game Settlers 4. These add additional hotkeys to your game
 - Use mouse wheel to cycle through beautification objects
 - Sleep on removing prio for more consistent behaviour
 - Toggle statistics between 15 and 60 minutes
+
 - Code cleanup
 - Add default hotkeys to readme
+- Check how honey statistics hotkey interacts with other races

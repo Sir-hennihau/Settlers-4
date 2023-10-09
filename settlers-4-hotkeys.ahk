@@ -35,17 +35,32 @@ Stop:= "`^"					; toggle constructiqon site pause
 Workingarea := "CapsLock"	; set working area 								
 Nextbuilding:= "+h"			; switch to next building							
 OnAndOff := "F5"			; Toggle skript on and off until pressed again
-StatisticsTab := "Numpad0"	
-StatisticsSettlers := "Numpad1"
-StatisticsBuiltRessources := "Numpad2"
-StatisticsLog := "Numpad3"
-StatisticsStone := "Numpad4"
-StatisticsGrain := "Numpad5"
-StatisticsCoal := "Numpad6"
-StatisticsIronOre := "Numpad7"
-StatisticsGoldOre := "Numpad8"
-StatisticsGoldBars := "Numpad9"
 
+StatisticsSettlers := "Numpad0"
+StatisticsBuiltRessources := "Numpad1"
+StatisticsLog := "Numpad2"
+StatisticsStone := "Numpad3"
+StatisticsGrain := "Numpad4"
+StatisticsWater := "Numpad5"
+StatisticsBread := "Numpad6"
+StatisticsMeat := "Numpad7"
+StatisticsFish := "Numpad8"
+StatisticsHoney := "Numpad9"
+
+StatisticsCoal := "^Numpad1"
+StatisticsIronOre := "^Numpad2"
+StatisticsGoldOre := "^Numpad3"
+StatisticsIronBars := "^Numpad4"
+StatisticsSwords := "^Numpad5"
+StatisticsBows := "^Numpad6"
+StatisticsSpecialWeapon:= "^Numpad7"
+StatisticsGoldBars := "^Numpad8"
+StatisticsPickaxe := "^Numpad9"
+
+
+StatisticsTab := "!Numpad0"	
+StatisticsKills  := "!Numpad1"	
+StatisticsLosses  := "!Numpad2"	
 
 ; --- LANGUAGE SETTINGS ---
 
@@ -115,12 +130,17 @@ StatisticsGoldBars := "Numpad9"
 	;location statistics tab	
 		x_statistic_tab := 168					
 		y_statistic_tab := 186
-	;location land statistics subtab	
+
+		x_statistic_warrior_subtab := 33					
+		y_statistic_warrior_subtab := 232
+
+
 		x_statistic_land_subtab := 100					
 		y_statistic_land_subtab := 230
-	;location goods statistics subtab	
+
 		x_statistic_goods_subtab := 180					
 		y_statistic_goods_subtab := 230
+
 	;location settlers statistics 	
 		x_statistic_settlers := 200				
 		y_statistic_settlers := 480
@@ -152,7 +172,41 @@ StatisticsGoldBars := "Numpad9"
 		x_statistics_60 := 29
 		y_statistics_60 := 350
 
+		x_statistic_water := 203				
+		y_statistic_water := 572
 
+		x_statistic_bread := 200				
+		y_statistic_bread := 488
+	
+		x_statistic_meat := 199				
+		y_statistic_meat := 529
+
+		x_statistic_fish := 234			
+		y_statistic_fish := 486
+
+		x_statistic_honey := 270			
+		y_statistic_honey := 569
+
+		x_statistic_iron_bars := 52			
+		y_statistic_iron_bars := 529
+
+		x_statistic_bows := 158		
+		y_statistic_bows := 480
+
+		x_statistic_swords := 129			
+		y_statistic_swords := 490		
+
+		x_statistic_special_weapon := 159			
+		y_statistic_special_weapon := 523
+
+		x_statistic_pickaxe := 303			
+		y_statistic_pickaxe := 525
+
+		x_statistic_kills := 142		
+		y_statistic_kills := 486
+
+		x_statistic_losses := 234			
+		y_statistic_losses := 484
 
 ; --- START OF SCRIPT--- !!!NO MORE CHANGES NEEDED!!!
 #UseHook
@@ -203,7 +257,20 @@ StatisticsGoldBars := "Numpad9"
 	Hotkey, %StatisticsCoal%, StatisticsCoalV 
 	Hotkey, %StatisticsIronOre%, StatisticsIronOreV
 	Hotkey, %StatisticsGoldOre%, StatisticsGoldOreV 
-	Hotkey, %StatisticsGoldBars%, StatisticsGoldBarsV 
+	Hotkey, %StatisticsGoldBars%, StatisticsGoldBarsV
+
+	Hotkey, %StatisticsWater%, StatisticsWaterV 
+	Hotkey, %StatisticsBread%, StatisticsBreadV 
+	Hotkey, %StatisticsMeat%, StatisticsMeatV 
+	Hotkey, %StatisticsFish%, StatisticsFishV 
+	Hotkey, %StatisticsHoney%, StatisticsHoneyV 
+	Hotkey, %StatisticsIronBars%, StatisticsIronBarsV 
+	Hotkey, %StatisticsSwords%, StatisticsSwordsV 
+	Hotkey, %StatisticsBows%, StatisticsBowsV 
+	Hotkey, %StatisticsSpecialWeapon%, StatisticsSpecialWeaponV 
+	Hotkey, %StatisticsPickaxe%, StatisticsPickaxeV 
+	Hotkey, %StatisticsKills%, StatisticsKillsV 
+	Hotkey, %StatisticsLosses%, StatisticsLossesV  
 	return
 
 ;MenuHotkeys
@@ -290,6 +357,44 @@ StatisticsTabV:
 	MouseGetPos, xpos, ypos
 	MouseMove, x_statistic_tab, y_statistic_tab, 0
 	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_warrior_subtab, y_statistic_warrior_subtab, 0
+	Send ^{Click x_statistic_warrior_subtab y_statistic_warrior_subtab Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return
+
+StatisticsKillsV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_warrior_subtab, y_statistic_warrior_subtab, 0
+	Send ^{Click x_statistic_warrior_subtab y_statistic_warrior_subtab Left}
+
+	MouseMove, x_statistic_kills, y_statistic_kills, 0
+	Send ^{Click x_statistic_kills y_statistic_kills Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return
+
+StatisticsLossesV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_warrior_subtab, y_statistic_warrior_subtab, 0
+	Send ^{Click x_statistic_warrior_subtab y_statistic_warrior_subtab Left}
+
+
+	MouseMove, x_statistic_losses, y_statistic_losses, 0
+	Send ^{Click x_statistic_losses y_statistic_losses Left}
 
 	MouseMove, x_statistics_60, y_statistics_60, 0
 	Send ^{Click x_statistics_60 y_statistics_60 Left}
@@ -379,9 +484,179 @@ StatisticsGrainV:
 	MouseMove, x_statistics_60, y_statistics_60, 0
 	Send ^{Click x_statistics_60 y_statistics_60 Left}
 
+	MouseMove, xpos, ypos, 0
+return
+
+StatisticsWaterV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_water, y_statistic_water, 0
+	Send ^{Click x_statistic_water y_statistic_water Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
 
 	MouseMove, xpos, ypos, 0
 return
+
+StatisticsBreadV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_bread, y_statistic_bread, 0
+	Send ^{Click x_statistic_bread y_statistic_bread Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return
+
+StatisticsMeatV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_meat, y_statistic_meat, 0
+	Send ^{Click x_statistic_meat y_statistic_meat Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return
+
+StatisticsFishV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_fish, y_statistic_fish, 0
+	Send ^{Click x_statistic_fish y_statistic_fish Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return
+
+StatisticsHoneyV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_honey, y_statistic_honey, 0
+	Send ^{Click x_statistic_honey y_statistic_honey Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return
+
+StatisticsIronBarsV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_iron_bars, y_statistic_iron_bars, 0
+	Send ^{Click x_statistic_iron_bars y_statistic_iron_bars Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return	
+
+StatisticsSwordsV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_swords, y_statistic_swords, 0
+	Send ^{Click x_statistic_swords y_statistic_swords Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return	
+
+
+StatisticsBowsV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_bows, y_statistic_bows, 0
+	Send ^{Click x_statistic_bows y_statistic_bows Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return	
+
+StatisticsSpecialWeaponV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_special_weapon, y_statistic_special_weapon, 0
+	Send ^{Click x_statistic_special_weapon y_statistic_special_weapon Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return	
+
+StatisticsPickaxeV:
+	MouseGetPos, xpos, ypos
+	MouseMove, x_statistic_tab, y_statistic_tab, 0
+	Send ^{Click x_statistic_tab y_statistic_tab Left}
+
+	MouseMove, x_statistic_goods_subtab, y_statistic_goods_subtab, 0
+	Send ^{Click x_statistic_goods_subtab y_statistic_goods_subtab Left}
+
+	MouseMove, x_statistic_pickaxe, y_statistic_pickaxe, 0
+	Send ^{Click x_statistic_pickaxe y_statistic_pickaxe Left}
+
+	MouseMove, x_statistics_60, y_statistics_60, 0
+	Send ^{Click x_statistics_60 y_statistics_60 Left}
+
+	MouseMove, xpos, ypos, 0
+return	
 	
 StatisticsCoalV:
 	MouseGetPos, xpos, ypos
